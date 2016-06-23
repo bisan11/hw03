@@ -1,0 +1,31 @@
+--- errorHandling.h.old	2016-04-02 15:41:07.757339815 +0200
++++ errorHandling.h	2016-04-02 15:43:03.105366442 +0200
+@@ -8,8 +8,8 @@
+ 
+ typedef enum {
+ 	ERROR_NO_MEMORY,
+-	ERROR_FILE_OPEN,
+-	ERROR_WRONG_FORMAT
++	ERROR_WRONG_FORMAT,
++	ERROR_WRONG_CMD
+ } errorType;
+ 
+ /**
+--- errorHandling.c.old	2016-04-02 15:41:02.793947969 +0200
++++ errorHandling.c	2016-04-02 15:41:47.037802904 +0200
+@@ -15,12 +15,12 @@
+ 	case ERROR_NO_MEMORY:
+ 		fputs("No available memory.\n", stderr);
+ 		break;
+-	case ERROR_FILE_OPEN:
+-		fputs("Cannot open file.\n", stderr);
+-		break;
+ 	case ERROR_WRONG_FORMAT:
+ 		fputs("Wrong format of the file.\n", stderr);
+ 		break;
++	case ERROR_WRONG_CMD:
++		fputs("Unknown command.\n", stderr);
++		break;
+ 
+ 	default:
+ 		fputs("Unknown error.\n", stderr);
